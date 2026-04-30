@@ -186,6 +186,15 @@ nav {
   gap: 8px;
 }
 
+.btn-demo {
+  height: 36px;
+  padding: 0 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
 .nav-github {
   width: 48px;
   height: 48px;

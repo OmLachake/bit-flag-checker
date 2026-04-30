@@ -3,7 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIT FLAG CHECKER</title>
+  <title>Bit Flag Checker — Bitwise Flag Validator</title>
+  <meta name="description" content="Instantly check which bit flags are set in a value using bitwise AND. Paste C/C++ #define or JavaScript/TypeScript constants and see SET/CLEAR results with binary annotation.">
+  <meta name="keywords" content="bit flag checker, bitwise AND, bitmask, flag constants, C define flags, JavaScript flags, TypeScript enum flags, hex binary decimal, bitwise operator, bit manipulation, flag set check, bitmask analyzer">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://omlachake.github.io/bit-flag-checker/">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://omlachake.github.io/bit-flag-checker/">
+  <meta property="og:title"       content="Bit Flag Checker — Bitwise Flag Validator">
+  <meta property="og:description" content="Instantly check which bit flags are set in a value using bitwise AND. Supports C/C++ #define and JavaScript/TypeScript constants.">
+  <meta property="og:image"       content="https://omlachake.github.io/bit-flag-checker/og-image.png">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Bit Flag Checker — Bitwise Flag Validator">
+  <meta name="twitter:description" content="Instantly check which bit flags are set in a value using bitwise AND. Supports C/C++ #define and JavaScript/TypeScript constants.">
+  <meta name="twitter:image"       content="https://omlachake.github.io/bit-flag-checker/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Bit Flag Checker",
+    "description": "Check which bit flags are set in a value using bitwise AND. Supports C/C++ #define and JavaScript/TypeScript constant imports.",
+    "url": "https://omlachake.github.io/bit-flag-checker/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,13 +50,14 @@
       <rect x="27" y="9" width="7" height="7" rx="1" fill="currentColor"/>
     </svg>
     <div>
-      <div class="nav-title">Bit Flag Checker</div>
-      <div class="nav-sub">Bitwise AND Analyzer</div>
+      <h1 class="nav-title">Bit Flag Checker</h1>
+      <p class="nav-sub">Bitwise Flag Validator</p>
     </div>
   </div>
 
   <div class="nav-actions">
-    <a class="nav-github" href="#" target="_blank" rel="noopener" title="View on GitHub" aria-label="View on GitHub">
+    <button class="btn btn-ghost btn-demo" id="btnDemo" title="Load demo flags and value">Demo</button>
+    <a class="nav-github" href="https://github.com/OmLachake/bit-flag-checker" target="_blank" rel="noopener" title="View on GitHub" aria-label="View on GitHub">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
       </svg>
@@ -57,7 +87,7 @@
     <div class="layout-left">
 
       <div class="section">
-        <div class="section-label">Main Value</div>
+        <h2 class="section-label">Main Value</h2>
         <div class="value-card">
           <div class="format-tabs">
             <button class="format-tab active" data-fmt="hex">Hex</button>
@@ -93,7 +123,7 @@
       </div>
 
       <div class="section">
-        <div class="section-label">Import From Code</div>
+        <h2 class="section-label">Import From Code</h2>
         <div class="import-card">
           <div class="import-header">
             <select class="lang-select" id="langSelect">
@@ -118,7 +148,7 @@
 
       <div class="section">
         <div class="flags-header">
-          <div class="section-label" style="margin-bottom:0">Flag Constants</div>
+          <h2 class="section-label" style="margin-bottom:0">Flag Constants</h2>
           <div class="btn-group">
             <button class="btn btn-ghost" id="btnClear">Clear All</button>
             <button class="btn" id="btnAdd">+ Add Flag</button>
@@ -133,14 +163,15 @@
       </div>
 
       <footer class="page-footer">
-        <p>Enter a value in <strong>Main Value</strong>, paste or manually add flag constants, then check the Results to see which flags are set via bitwise AND <code>(value &amp; flag) === flag</code>.</p>
+        <p>Enter a bitmask in <strong>Main Value</strong> (hex, decimal, or binary), then paste your <strong>flag constants</strong> — C/C++ <code>#define</code>, JavaScript <code>const</code>, TypeScript <code>enum</code>, or object literals — and instantly see which flags are <strong>SET</strong> or <strong>CLEAR</strong> via bitwise AND: <code>(value &amp; flag) === flag</code>.</p>
+        <p>Supports arbitrarily large integers, per-flag format selection (hex / decimal / binary), and annotated binary output showing exactly which bits match. Ideal for debugging <strong>permission flags</strong>, <strong>status bitmasks</strong>, <strong>hardware registers</strong>, and any <strong>bitwise flag</strong> pattern in C, C++, JavaScript, or TypeScript.</p>
       </footer>
 
     </div>
 
     <div class="layout-right">
       <div class="results-panel">
-        <div class="section-label">Results</div>
+        <h2 class="section-label">Results</h2>
         <div class="summary-band" id="summaryBand">
           <div class="stat">
             <span class="stat-value"       id="statTotal">0</span>

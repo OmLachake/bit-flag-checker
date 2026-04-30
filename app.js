@@ -87,7 +87,7 @@ function fmtValue(v, fmt) {
   return fmt === 'hex' ? toHex(v) : fmt === 'bin' ? toBin(v) : toDec(v);
 }
 
-function addFlagRow(flag) {
+function addFlagRow(flag, shouldFocus = false) {
   const list = document.getElementById('flagsList');
   const row  = document.createElement('div');
   row.className  = 'flag-row';
@@ -143,10 +143,10 @@ function addFlagRow(flag) {
   });
 
   list.appendChild(row);
-  nameInput.focus();
+  if (shouldFocus) nameInput.focus();
 }
 
-function createFlag(rawName = '', rawValue = '', fmt = 'hex') {
+function createFlag(rawName = '', rawValue = '', fmt = 'hex', shouldFocus = false) {
   const id   = ++flagCounter;
   const flag = { id, rawName, rawValue, name: rawName || `FLAG_${id}`, value: null, fmt };
   if (rawValue) {
@@ -154,7 +154,7 @@ function createFlag(rawName = '', rawValue = '', fmt = 'hex') {
     flag.value   = parsed === undefined ? null : parsed;
   }
   flags.push(flag);
-  addFlagRow(flag);
+  addFlagRow(flag, shouldFocus);
   renderResults();
 }
 
@@ -359,7 +359,7 @@ document.getElementById('btnImportClear').addEventListener('click', () => {
   document.getElementById('importError').textContent = '';
 });
 
-document.getElementById('btnAdd').addEventListener('click', () => createFlag());
+document.getElementById('btnAdd').addEventListener('click', () => createFlag('', '', 'hex', true));
 
 document.getElementById('btnClear').addEventListener('click', () => {
   flags = [];
@@ -381,7 +381,17 @@ document.getElementById('btnTheme').addEventListener('click', () => {
 
 applyTheme(localStorage.getItem('theme') === 'dark');
 
-createFlag('READ',    '0x0001');
-createFlag('WRITE',   '0x0002');
-createFlag('EXECUTE', '0x0004');
-createFlag('ADMIN',   '0x0008');
+document.getElementById('btnDemo').addEventListener('click', () => {
+  const inp = document.getElementById('mainInput');
+  inp.value = '0x000B';
+  inp.dispatchEvent(new Event('input'));
+
+  flags = [];
+  flagCounter = 0;
+  document.getElementById('flagsList').innerHTML = '';
+
+  createFlag('READ',    '0x0001');
+  createFlag('WRITE',   '0x0002');
+  createFlag('EXECUTE', '0x0004');
+  createFlag('ADMIN',   '0x0008');
+});

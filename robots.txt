@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omlachake.github.io/bit-flag-checker/sitemap.xml

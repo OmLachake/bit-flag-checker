@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .on  { fill: #0a0a0a }
+    .off { fill: #0a0a0a; fill-opacity: 0.2 }
+    @media (prefers-color-scheme: dark) {
+      .on  { fill: #ffffff }
+      .off { fill: #ffffff; fill-opacity: 0.2 }
+    }
+  </style>
+  <rect class="on"  x="1"  y="9"  width="6" height="6" rx="1"/>
+  <rect class="off" x="9"  y="9"  width="6" height="6" rx="1"/>
+  <rect class="on"  x="17" y="9"  width="6" height="6" rx="1"/>
+  <rect class="on"  x="25" y="9"  width="6" height="6" rx="1"/>
+  <rect class="off" x="1"  y="17" width="6" height="6" rx="1"/>
+  <rect class="on"  x="9"  y="17" width="6" height="6" rx="1"/>
+  <rect class="off" x="17" y="17" width="6" height="6" rx="1"/>
+  <rect class="on"  x="25" y="17" width="6" height="6" rx="1"/>
+</svg>

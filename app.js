@@ -379,7 +379,7 @@ document.getElementById('btnTheme').addEventListener('click', () => {
   applyTheme(document.documentElement.getAttribute('data-theme') !== 'dark');
 });
 
-applyTheme(localStorage.getItem('theme') === 'dark');
+applyTheme(localStorage.getItem('theme') !== 'light');
 
 document.getElementById('btnDemo').addEventListener('click', () => {
   const inp = document.getElementById('mainInput');

@@ -174,8 +174,8 @@ nav {
   gap: 12px;
 }
 .nav-logo {
-  width: 36px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
   color: var(--ink);
   flex-shrink: 0;
 }
